@@ -78,10 +78,53 @@ print(census['higher_tax'].unique())
 Your manager would also like to know the `median` sentiment of the respondents on the issue of higher taxes for the wealthy. Label encode the `higher_tax` variable and print the median using the pandas `.median()` method.
 ```python
 #Step9
-# Use cat.codes to label encode the higher_tax variable
+#Use cat.codes to label encode the higher_tax variable
 census['higher_tax'] = census['higher_tax'].cat.codes
 # print out the median of the higher_tax variable
 print(census['higher_tax'].median()) 
 
 ```
-
+## Step 10
+Your manager would also like to know the `median` sentiment of the respondents on the issue of higher taxes for the wealthy. Label encode the `higher_tax` variable and print the median using the pandas `.median()` method.
+```python
+#Step10
+#Use get_dummies to OHE the marital_status
+census = pd.get_dummies(census, columns=['marital_status'])
+#print out the first 5 rows in the census dataframe
+print(census.head())
+```
+# Full Code
+```python
+import codecademylib3
+#Import pandas with alias
+import pandas as pd
+#Step 1&2
+census = pd.read_csv('census_data.csv', index_col=0)
+print(census.head(10))
+#Step 3
+print(census.dtypes)
+#Step 4
+print(census['birth_year'].unique())
+#Step 5 
+census['birth_year'] = census['birth_year'].replace('missing', '1967')
+#Step 6
+census['birth_year'] = census['birth_year'].astype(int)
+print(census.dtypes)
+#Step 7
+print(census['birth_year'].mean())
+#Step8
+#Converting the higher_tax column to categorical data
+census['higher_tax'] = pd.Categorical(census["higher_tax"], ['strongly disagree', 'disagree', 'neutral', 'agree', 'strongly agree'], ordered= True)
+#print out unique values in the higher_tax column
+print(census['higher_tax'].unique())
+#Step9
+#Use cat.codes to label encode the higher_tax variable
+census['higher_tax'] = census['higher_tax'].cat.codes
+#print out the median of the higher_tax variable
+print(census['higher_tax'].median()) 
+#Step10
+#Use get_dummies to OHE the marital_status
+census = pd.get_dummies(census, columns=['marital_status'])
+#print out the first 5 rows in the census dataframe
+print(census.head())
+```
