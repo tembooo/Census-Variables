@@ -1,6 +1,8 @@
 # Census-Variables
 You have decided to volunteer for your local community by offering to clean their recently collected census data.
 The census dataframe is composed of simulated census data to represent demographics of a small community in the U.S.
+<img title="Page-Visits-Funnel" src="https://imgurl.ir/uploads/s03892_Census-Variables.png">
+
 ## Step1: Print Sample:
 The `census` dataframe is composed of simulated census data to represent demographics of a small community in the U.S. Call the `.head()` method on the census dataframe and print the output to view the first five rows.<br/>
 `I use Code Academy lesson.` <br/>
